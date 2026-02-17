@@ -22,6 +22,7 @@ The Customer Churn Prediction Business Dataset comes from Kaggle. This dataset i
 4.	Data Preprocessing/Preparation
    
 The 'customer_id' column is dropped because it does not add value to the modeling effort: df.drop(columns=['customer_id'])
+
 Any leading and trailing white spaces from categorical columns are removed:
 string_cols = df.select_dtypes(include=['object']).columns
 df[string_cols] = df[string_cols].apply(lambda x: x.str.strip())
