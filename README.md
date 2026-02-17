@@ -28,7 +28,7 @@ df[string_cols] = df[string_cols].apply(lambda x: x.str.strip())
 The column with missing values is identified:   
 `df.columns[df.isnull().any()].tolist()`    
 The percentage of missing values is calculated:   
-df['complaint_type'].isnull().sum()/df.shape[0]*100      
+df['complaint_type'].isnull().sum()/df.shape[0]\*100      
 The percentage of missing values is not high enough to warrant dropping the column. The missing values are instead replaced with the column mode:  
 mode_column = df['complaint_type'].mode()
 df['complaint_type'] = df['complaint_type'].fillna(str(mode_column))
