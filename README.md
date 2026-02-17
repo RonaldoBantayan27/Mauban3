@@ -1,10 +1,10 @@
-Capstone Project
+**Capstone Project**
 
-Customer Churn Prediction
+**Customer Churn Prediction**
 
-Final Report
+**Final Report**
 
-1.	Problem Statement
+**1.	Problem Statement**
    
 The problem at hand is how to identify at an early stage the customers who are likely to churn so that proactive measures can be implemented to prevent these customers from leaving. We would like to predict whether a customer will churn or not churn based on certain attributes like customer satisfaction scores, how long the customer has been with the company, payment failures, customer location, customer engagement level and the contract type.
 It is critical to find the reasons why customers stop using the company's products. When these factors are known, the customers who are likely to churn can be identified early enough and special programs can be implemented to prevent these customers from churning. In this way, the company's continued profitability is asssured.
@@ -22,7 +22,7 @@ The Customer Churn Prediction Business Dataset comes from Kaggle. This dataset i
 4.	Data Preprocessing/Preparation
    
 The 'customer_id' column is dropped because it does not add value to the modeling effort:  
-df.drop(columns=['customer_id'])  
+`df.drop(columns=['customer_id'])`  
 Any leading and trailing white spaces from categorical columns are removed:  
 string_cols = df.select_dtypes(include=['object']).columns  
 df[string_cols] = df[string_cols].apply(lambda x: x.str.strip())  
