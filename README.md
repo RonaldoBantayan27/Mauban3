@@ -1,5 +1,7 @@
 Capstone Project
+
 Customer Churn Prediction
+
 Final Report
 
 1.	Problem Statement
