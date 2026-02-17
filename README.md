@@ -8,26 +8,27 @@ The problem at hand is how to identify at an early stage the customers who are l
 It is critical to find the reasons why customers stop using the company's products. When these factors are known, the customers who are likely to churn can be identified early enough and special programs can be implemented to prevent these customers from churning. In this way, the company's continued profitability is asssured.
 Customer retention makes a lot of business sense - it costs around five (5) times more to acquire new customers than to retain existing customers. A reduction in customer churn can significantly increase revenue. The reasons for customer churn and who are these customers can be predicted before churn happens.
 
-2.	Model Outcomes or Predictions
+**2.	Model Outcomes or Predictions**
    
 The type of learning is classification. The expected output of the selected model is the prediction of customers who are likely to churn and the features that drive churn. Supervised machine learning algorithms are used to build predictive models. 
 The models are expected to be able to catch churners quite well so that proactive measures can be designed at an early stage to prevent them from leaving.  At the same time, a profit/loss analysis will make sure that these measures are profitable. The models will also demonstrate a capability to make useful predictions and highlight the features mostly affecting churn so that retention programs are suitably targeted.
 
-3.	Data
+**3.	Data**
    
 The Customer Churn Prediction Business Dataset comes from Kaggle. This dataset is synthetically generated for educational, research, and portfolio purposes. While it reflects realistic business patterns, it does not represent real customer data.
 
-4.	Data Preprocessing/Preparation
+**4.	Data Preprocessing/Preparation**
    
 The 'customer_id' column is dropped because it does not add value to the modeling effort:  
 `df.drop(columns=['customer_id'])`  
 Any leading and trailing white spaces from categorical columns are removed:  
-string_cols = df.select_dtypes(include=['object']).columns  
-df[string_cols] = df[string_cols].apply(lambda x: x.str.strip())  
-The column with missing values is identified: df.columns[df.isnull().any()].tolist()  
-The percentage of missing values is calculated: df['complaint_type'].isnull().sum()/df.shape[0]*100  
-
-The percentage of missing values is not high enough to warrant dropping the column. The missing values are instead replaced with the column mode:
+`string_cols = df.select_dtypes(include=['object']).columns`  
+`df[string_cols] = df[string_cols].apply(lambda x: x.str.strip())`  
+The column with missing values is identified:   
+`df.columns[df.isnull().any()].tolist()`    
+The percentage of missing values is calculated:   
+df['complaint_type'].isnull().sum()/df.shape[0]*100      
+The percentage of missing values is not high enough to warrant dropping the column. The missing values are instead replaced with the column mode:  
 mode_column = df['complaint_type'].mode()
 df['complaint_type'] = df['complaint_type'].fillna(str(mode_column))
 Inconsistent data is replaced, for example: df['complaint_type'] = df['complaint_type'].replace({'0    Technical\nName: complaint_type, dtype: object':'Technical'})
