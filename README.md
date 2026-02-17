@@ -83,6 +83,7 @@ The SVC (Support Vector Classifier)model finds the features csat_score, monthly_
 Overall Model Summary     
 The DecisionTreeClassifier model is the clear winner. For this particular dataset, it is the recommended machine learning algorithm. The model has the highest profit, Accuracy, Precision, F2 Score and AUC. While it is last in terms of Recall, this is more than made up by its higher Accuracy and Precision.
 While the DecisionTreeClassifier model provided the most balanced performance with an Accuracy of 74.8% and the highest Profit, some of the other models achieved higher Recall (>96%), ensuring that almost all potential churners are identified. However, this comes at the cost of False Positives, as evidenced by low Precision.
+
 Next Steps and Recommendations  
 - Confirm the model that will suit the business needs in terms of the optimal level of churn identification and precision.    
 - Continue model development to include actual identification of clients who are likely to churn.
