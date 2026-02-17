@@ -21,23 +21,17 @@ The Customer Churn Prediction Business Dataset comes from Kaggle. This dataset i
 
 4.	Data Preprocessing/Preparation
    
-The 'customer_id' column is dropped because it does not add value to the modeling effort: df.drop(columns=['customer_id'])<br>
-Any leading and trailing white spaces from categorical columns are removed:
-
-string_cols = df.select_dtypes(include=['object']).columns
-
-df[string_cols] = df[string_cols].apply(lambda x: x.str.strip())
-
-The column with missing values is identified: df.columns[df.isnull().any()].tolist()
-
-The percentage of missing values is calculated: df['complaint_type'].isnull().sum()/df.shape[0]*100
+The 'customer_id' column is dropped because it does not add value to the modeling effort:<br> 
+df.drop(columns=['customer_id'])<br>
+Any leading and trailing white spaces from categorical columns are removed:<br>
+string_cols = df.select_dtypes(include=['object']).columns<br>
+df[string_cols] = df[string_cols].apply(lambda x: x.str.strip())<br>
+The column with missing values is identified: df.columns[df.isnull().any()].tolist()<br>
+The percentage of missing values is calculated: df['complaint_type'].isnull().sum()/df.shape[0]*100<br>
 
 The percentage of missing values is not high enough to warrant dropping the column. The missing values are instead replaced with the column mode:
-
 mode_column = df['complaint_type'].mode()
-
 df['complaint_type'] = df['complaint_type'].fillna(str(mode_column))
-
 Inconsistent data is replaced, for example: df['complaint_type'] = df['complaint_type'].replace({'0    Technical\nName: complaint_type, dtype: object':'Technical'})
 There are no duplicate rows:
 duplicates = len(df[df.duplicated()])
