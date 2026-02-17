@@ -22,8 +22,8 @@ The Customer Churn Prediction Business Dataset comes from Kaggle. This dataset i
 The 'customer_id' column is dropped because it does not add value to the modeling effort:  
 `df.drop(columns=['customer_id'])`  
 Any leading and trailing white spaces from categorical columns are removed:  
-`string_cols = df.select_dtypes(include=['object']).columns`  
-`df[string_cols] = df[string_cols].apply(lambda x: x.str.strip())`  
+```string_cols = df.select_dtypes(include=['object']).columns  
+df[string_cols] = df[string_cols].apply(lambda x: x.str.strip())```  
 The column with missing values is identified:   
 `df.columns[df.isnull().any()].tolist()`    
 The percentage of missing values is calculated:   
