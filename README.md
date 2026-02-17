@@ -15,11 +15,11 @@ The models are expected to be able to catch churners quite well so that proactiv
 
 **3.	Data**
    
-The Customer Churn Prediction Business Dataset comes from Kaggle. This dataset is synthetically generated for educational, research, and portfolio purposes. While it reflects realistic business patterns, it does not represent real customer data.
+The `Customer Churn Prediction Business Dataset` comes from `Kaggle`. This dataset is synthetically generated for educational, research, and portfolio purposes. While it reflects realistic business patterns, it does not represent real customer data.
 
 **4.	Data Preprocessing/Preparation**
    
-The 'customer_id' column is dropped because it does not add value to the modeling effort:  
+The `'customer_id'` column is dropped because it does not add value to the modeling effort:  
 `df.drop(columns=['customer_id'])`  
 Any leading and trailing white spaces from categorical columns are removed:  
 `string_cols = df.select_dtypes(include=['object']).columns`  
@@ -50,7 +50,7 @@ Outliers are removed from numeric features using the interquartile range (IQR) r
 `    upper_bound = Q3 + 1.5*IQR`  
 `    df = df[(df[col] >= lower_bound) & (df[col] <= upper_bound)]`  
 Box plots of numerical features are re-analyzed after the removal of outliers. The remaining outliers are allowed to stay to conserve data.   
-For the box plots, particular attention is given to when the ‘churn’ median line is lower than the ‘no churn’ median line, churn is more likely here. Overlapping ‘churn’ and ‘no churn’ boxes indicate that the feature might not be a good predictor. Separation of the churn and no churn boxes is a strong signal for good predictors.  
+For the box plots, particular attention is given to when the `‘churn’` median line is lower than the `‘no churn’` median line, churn is more likely here. Overlapping `‘churn’` and `‘no churn’` boxes indicate that the feature might not be a good predictor. Separation of the churn and no churn boxes is a strong signal for good predictors.  
 Stacked bars of categorical features (in percentages) are plotted.    The color ratios of the stacked bars highlight features which have slightly more churn.  
 Histograms are plotted to visualize the distribution of numerical features to help uncover trends and patterns.  
 Heat maps of numeric features are displayed to highlight significant positive and negative correlations especially with ‘churn’.  
@@ -60,8 +60,8 @@ The features and target variable are defined:
 `y = df['churn']`  
 and then split into training and test sets:  
 `X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=42, stratify=y)`  
-Scaling is not used in DecisionTreeClassifier while  LogisticRegression, KNeighborsClassifier and SVC (Support Vector Classifier) use scaling. StandardScaler is used. KNeighborsClassifier and SVC (Support Vector Classifier)are especially sensitive to the scale of input features.  
-Categorial features are encoded using OneHotEncoder and OrdinalEncoder.
+Scaling is not used in `DecisionTreeClassifier` while  `LogisticRegression`, `KNeighborsClassifier` and `SVC (Support Vector Classifier)` use scaling. `StandardScaler` is used. `KNeighborsClassifier` and `SVC (Support Vector Classifier)`are especially sensitive to the scale of input features.  
+Categorial features are encoded using `OneHotEncoder` and `OrdinalEncoder`.
 
 **5.	Modeling**
    
@@ -74,11 +74,11 @@ The class imbalance is verified:
 `0    0.906262`  
 `1    0.093738`  
 `Name: proportion, dtype: float64`  
-In order to address the class imbalance, SMOTE-NC (Synthetic Minority Oversampling Technique for Nominal and Continuous features)is used by KNeighborsClassifier while the other models use the parameter class_weight='balanced'.
-Transformers like make_column_transformer and ColumnTransformer are used to prepare the data for encoding and scaling, as required, and fed to a Pipeline.
+In order to address the class imbalance, `SMOTE-NC (Synthetic Minority Oversampling Technique for Nominal and Continuous features)`is used by `KNeighborsClassifier` while the other models use the parameter `class_weight='balanced'`.
+Transformers like `make_column_transformer` and `ColumnTransformer` are used to prepare the data for encoding and scaling, as required, and fed to a `Pipeline`.
 A baseline model is built to benchmark the models to be designed. Simple models of the various algorithms are initially created to further benchmark the modeling effort.
-classification_report and confusion_matrix provide the Accuracy, Precision, and Recall of the models. F2 score is calculated and a Profit/Loss analysis is also made. 
-The models are optimized using HalvingRandomSearchCV, GridSearchCV, and RandomizedSearchCV.
+`classification_report` and `confusion_matrix` provide the `Accuracy`, `Precision`, and `Recall` of the models. `F2 score` is calculated and a `Profit/Loss analysis` is also made. 
+The models are optimized using `HalvingRandomSearchCV`, `GridSearchCV`, and `RandomizedSearchCV`.
 The ROC (Receiver Operating Characteristic) Curve is plotted to display the  AUC (Area Under Curve)which is a measure of the predictive power of the model and to calculate the optimal threshold using the Youden’s J method.
 The Precision-Recall Curve is also plotted to demonstrate the relationship between Precision and Recall. Precision and Recall are evaluated at different thresholds.  The threshold that maximizes profit is determined.
 For each classifier, models are constructed and their respective performances are compared to each other. In addition to Accuracy, Precision, Recall, F2 score, and AUC, the best model is chosen based on business goals that consider the relative cost of missing a churner (false negatives - predicted not to churn but churned, loss of lifetime value), cost of false alarms (false positives - predicted to churn but stayed, cost of retention offer) and true positives (predicted to stay and actually stayed, saved lifetime value less the cost of retention offer).
