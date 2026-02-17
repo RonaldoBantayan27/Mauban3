@@ -13,11 +13,11 @@ Customer retention makes a lot of business sense - it costs around five (5) time
 The type of learning is classification. The expected output of the selected model is the prediction of customers who are likely to churn and the features that drive churn. Supervised machine learning algorithms are used to build predictive models. 
 The models are expected to be able to catch churners quite well so that proactive measures can be designed at an early stage to prevent them from leaving.  At the same time, a profit/loss analysis will make sure that these measures are profitable. The models will also demonstrate a capability to make useful predictions and highlight the features mostly affecting churn so that retention programs are suitably targeted.
 
-4.	Data
+3.	Data
    
 The Customer Churn Prediction Business Dataset comes from Kaggle. This dataset is synthetically generated for educational, research, and portfolio purposes. While it reflects realistic business patterns, it does not represent real customer data.
 
-5.	Data Preprocessing/Preparation
+4.	Data Preprocessing/Preparation
    
 The 'customer_id' column is dropped because it does not add value to the modeling effort: df.drop(columns=['customer_id'])
 Any leading and trailing white spaces from categorical columns are removed:
@@ -58,7 +58,9 @@ and then split into training and test sets:
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=42, stratify=y)
 Scaling is not used in DecisionTreeClassifier while  LogisticRegression, KNeighborsClassifier and SVC (Support Vector Classifier) use scaling. StandardScaler is used. KNeighborsClassifier and SVC (Support Vector Classifier)are especially sensitive to the scale of input features.
 Categorial features are encoded using OneHotEncoder and OrdinalEncoder.
-7.	Modeling
+
+5.	Modeling
+   
 The following supervised machine learning algorithms are used to build predictive models:
 LogisticRegression, DecisionTreeClassifier, KNeighborsClassifier, and SVC (Support Vector Classifier)
 The class imbalance is verified:
