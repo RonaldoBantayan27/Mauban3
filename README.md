@@ -53,7 +53,7 @@ Box plots of numerical features are re-analyzed after the removal of outliers. T
 For the box plots, particular attention is given to when the `‘churn’` median line is lower than the `‘no churn’` median line, churn is more likely here. Overlapping `‘churn’` and `‘no churn’` boxes indicate that the feature might not be a good predictor. Separation of the churn and no churn boxes is a strong signal for good predictors.  
 Stacked bars of categorical features (in percentages) are plotted.    The color ratios of the stacked bars highlight features which have slightly more churn.  
 Histograms are plotted to visualize the distribution of numerical features to help uncover trends and patterns.  
-Heat maps of numeric features are displayed to highlight significant positive and negative correlations especially with ‘churn’.  
+Heat maps of numeric features are displayed to highlight significant positive and negative correlations especially with `‘churn’`.  
 A pair plot analysis of the top six (6) numeric features is made to verify the distribution of churn in these numeric features.   
 The features and target variable are defined:  
 `X = df.drop(['churn'], axis=1)`  
