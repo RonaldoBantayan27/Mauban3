@@ -107,7 +107,8 @@ While the `DecisionTreeClassifier` model provided the most balanced performance 
 - Continue model development to include actual identification of clients who are likely to churn.
 - Tune the thresholds to maximize profit using realistic lifetime value and cost of retention assumptions.
 - Deploy and apply the model for the use of relevant business groups like marketing teams for retention campaigns, customer support teams for proactive outreach, and product teams for feature improvements. Leadership can also be guided by the model for churn strategy and forecasting.     
-- Continue model development to validate the features relative importance to guide management on which features need to be given particular attention in order to prevent churn.  
+- Continue model development to validate the features relative importance to guide management on which features need to be given particular attention in order to prevent churn.
+  
 Churn in this dataset is primarily driven by customer satisfaction and engagement levels rather than pricing. Improving user experience and increasing product adoption would likely have the strongest impact on reducing churn.
 
 **References:** Jupyter Notebook   
