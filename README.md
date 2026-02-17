@@ -85,7 +85,9 @@ For each classifier, models are constructed and their respective performances ar
 In this particular case of customer churn, missing churners (`Recall`) is more expensive than false alarms (`Precision`). `Recall` is, therefore, optimized at the expense of `Precision` and `Accuracy`.  
 The features and their proportional importances are also identified particularly those features whose increase or decrease correspondingly raise or lower the likelihood of customer churn.  
 Prediction is demonstrated using samples from the test data.  
-Identification of customers likely to churn is also shown.  
+Identification of customers likely to churn is also shown.      
+A `Churn Risk Demonstration List` is taken from the test data to demonstrate one of the many ways to use the model. The list shows customers who have churned and those who have not. We need to pay close attention to those customers who have not churned yet and are at risk of churning.      
+For example, we shall identify customers with high churn probability (or showing signs of churning) and who have not yet churned so that we can embark on special and proactive programs to keep them from leaving.
 
 **6.	Model Evaluation**
    
