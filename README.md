@@ -37,9 +37,9 @@ There are no duplicate rows:
 `duplicates = len(df[df.duplicated()])`  
 The distributions of categorical columns are verified:  
 `categorical_cols = df.select_dtypes(include=['object']).columns.tolist()`
-```for i in categorical_cols:
-    value_count_column = df[i].value_counts(normalize=True)
-    print(f'The value count for column {value_count_column} \n')```  
+`for i in categorical_cols:
+`    value_count_column = df[i].value_counts(normalize=True)`
+`    print(f'The value count for column {value_count_column} \n')`  
 Box plots of numerical features are analyzed prior to removal of outliers to visualize the presence of outliers.
 Outliers are removed from numeric features using the interquartile range (IQR) rule:
 for col in numeric_list:
