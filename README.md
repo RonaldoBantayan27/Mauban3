@@ -110,6 +110,6 @@ While the `DecisionTreeClassifier` model provided the most balanced performance 
 - Continue model development to validate the features relative importance to guide management on which features need to be given particular attention in order to prevent churn.  
 Churn in this dataset is primarily driven by customer satisfaction and engagement levels rather than pricing. Improving user experience and increasing product adoption would likely have the strongest impact on reducing churn.
 
-**Reference:** Jupyter Notebook   
+**References:** Jupyter Notebook   
            Customer_Churn_Prediction.ipynb  
            Ronaldo Bantayan (Author)
