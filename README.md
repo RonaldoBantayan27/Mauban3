@@ -116,3 +116,9 @@ Churn in this dataset is primarily driven by customer satisfaction and engagemen
 **References:** Jupyter Notebook   
            Customer_Churn_Prediction.ipynb  
            Ronaldo Bantayan (Author)
+
+## Notebook
+
+You can view the full analysis here:
+
+[Customer Churn Analysis](notebooks/Customer_Churn_Prediction.ipynb)
